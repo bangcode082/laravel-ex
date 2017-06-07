@@ -1,4 +1,4 @@
-<form method="POST" action="/auth/login">
+<form method="POST" action="/login">
 @if(count($errors) > 0)
   <ul>
     @foreach($errors->all() as $error)
