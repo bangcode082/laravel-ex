@@ -15,6 +15,12 @@ class AdminController extends Controller
       return view('admin')->with('users', $users->all());
     }
 
+    public function view(Request $request, $id)
+    {
+      $users = User::find($id);
+      return view('user')->with('users', $users);
+    }
+
     public function addUser(Request $request)
     {
       return view('adduser');

@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">User administration app</div>
                 <p><a href="/login">Silakan login</a></p>
             </div>
         </div>
