@@ -1,6 +1,7 @@
 <a href="{{route('add_user')}}">Tambah</a>
-
-{{-- {{ dd($users) }} --}}
+<ol>
 @foreach ($users as $key => $user)
-  <li>{{ $user->name }} - {{ $user->role}} <a href="/admin/deluser/{{$user->id}}">delete</a></li>
+  <li><strong>{{ $user->name }}</strong> as <em>{{ $user->role}}</em> | <a href="/admin/deluser/{{$user->id}}">delete</a></li>
 @endforeach
+</ol>
+<p><a href="/logout">Logout</a></p>

@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
+    private $users;
     public function index(Request $request)
     {
       $users = new User;
@@ -16,16 +17,30 @@ class AdminController extends Controller
 
     public function addUser(Request $request)
     {
-      # code...
+      return view('adduser');
     }
 
     public function saveUser(Request $request)
     {
-      # code...
+      $users = new User;
+      $users->create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'username' => $request->username,
+        'password' => bcrypt($request->password),
+        'role' => $request->role
+      ]);
+      if ($users) {
+        return redirect('admin');
+      }
     }
 
-    public function delUser(Request $request)
+    public function delUser(Request $request, $id)
     {
-      # code...
+      $users = User::find($id);
+      if ($users) {
+        $users->delete();
+        return redirect('admin');
+      }
     }
 }
